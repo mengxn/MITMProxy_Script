@@ -1,0 +1,26 @@
+-
+  key: c
+  cmd: export.clip curl @focus
+  help: Export a flow as a curl command to the clipboard.
+
+-
+  key: B
+  ctx: ['flowview']
+  cmd: cut.clip @focus response.text
+  help: Save response body to the clipboard
+
+-
+  key: s
+  cmd: pop.save_response @focus
+  help: Save response body to the local file
+
+-
+  key: S
+  cmd: pop.save_response_edit @focus
+  help: Save response body to the local file and open it
+
+-
+  key: P
+  cmd: pop.proxy_toggle
+  help: toggle proxy
+
