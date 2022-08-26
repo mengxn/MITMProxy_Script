@@ -78,7 +78,7 @@ def save_response(flow: http.HTTPFlow, edit: bool):
         ctx.log.alert("Saved")
 
     if edit:
-        subprocess.call(['st', proxy_file])
+        subprocess.call(['open', proxy_file])
 
 
 def get_proxy_file_path(flow: http.HTTPFlow):
