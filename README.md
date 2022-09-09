@@ -9,7 +9,7 @@ MITMProxy 扩展脚本
 
 ## 使用
 1. 在命令行输入以下代码进行安装  
-`curl https://raw.githubusercontent.com/mengxn/MITMProxy_Script/master/setup.sh -o setup.sh -s && sh setup.sh`
+`curl -L https://raw.githubusercontent.com/mengxn/MITMProxy_Script/master/setup.sh -s | bash`
 2. 启用代理软件时，使用`-s`指定脚本  
 `mitmproxy -s ~/.mitmproxy/proxy.py`
 3. (可选)也可以将脚本配置到`~/.mitmproxy/config.yaml`文件中，免去每次指定脚本的操作  
