@@ -4,6 +4,7 @@
 """Send a reply from the proxy without sending any data to the remote server."""
 
 import os
+import shutil
 import subprocess
 from collections import Sequence
 
@@ -38,6 +39,11 @@ class POPProxy:
     def toggle_proxy(self) -> None:
         self.proxy = not self.proxy
         ctx.log.alert("proxy " + str(self.proxy))
+
+    @command.command("pop.clear")
+    def clear_proxy(self) -> None:
+        shutil.rmtree(proxy_dir)
+        ctx.log.alert("proxy clear")
 
     # save response to local file
     @command.command("pop.save_response")
@@ -82,6 +88,8 @@ def save_response(flow: http.HTTPFlow, edit: bool):
 
 
 def get_proxy_file_path(flow: http.HTTPFlow):
+    if not os.path.exists(proxy_dir):
+        os.makedirs(proxy_dir)
     if flow.response and 'Content-Type' in flow.response.headers and 'application/json' in flow.response.headers['Content-Type']:
         return os.path.join(proxy_dir, '%s.json' % '_'.join(flow.request.path_components))
     else:
