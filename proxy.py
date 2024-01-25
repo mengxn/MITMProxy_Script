@@ -6,7 +6,7 @@
 import os
 import shutil
 import subprocess
-from collections import Sequence
+from collections.abc import Sequence
 
 from mitmproxy import http, ctx, command, types
 
@@ -24,7 +24,6 @@ class POPProxy:
             os.makedirs(proxy_dir)
 
     def response(self, flow: http.HTTPFlow) -> None:
-        ctx.log.info('map response')
         if self.proxy:
             map_local(flow)
 
